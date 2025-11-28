@@ -1,0 +1,698 @@
+<!doctype html>
+<html lang="pt-BR">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artes Thalsystmn</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <style>
+    body {
+
+
+      box-sizing: border-box;
+    }
+    
+    #portfolio-title {
+  text-align: center;
+  font-size: 40px;      /* deixa maior */
+  font-weight: 800;     /* deixa mais forte */
+  margin-bottom: 30px;  /* espaço entre o título e as imagens */
+  color: black;         /* garante visibilidade */
+}
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .titulo {
+    text-align: center;
+    font-size: 12px;
+    }
+
+    html, body {
+      height: 100%;
+      width: 100%;
+    }
+    
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #1a1a1a;
+      overflow-x: hidden;
+    }
+    
+    .page-wrapper {
+      width: 100%;
+      min-height: 100%;
+    }
+    
+    /* Header */
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      padding: 1.5rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      transition: background-color 0.3s ease;
+    }
+    
+    header.scrolled {
+      background-color: rgba(255, 255, 255, 0.95);
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    }
+    
+    .top-center {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+    
+    nav ul {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+    
+    nav a {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      transition: color 0.3s ease;
+    }
+    
+    nav a:hover {
+      opacity: 0.7;
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      width: 100%;
+      min-height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-content {
+      max-width: 1200px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    
+    .hero-text h1 {
+      font-size: 4rem;
+      font-weight: 800;
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+      letter-spacing: -2px;
+    }
+    
+    .hero-text p {
+      font-size: 1.25rem;
+      line-height: 1.6;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+    
+    .frame {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.img-frame {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1rem;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: none;
+      cursor: pointer;
+    }
+    
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    .hero-image {
+      width: 100%;
+      height: 500px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 8rem;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    /* About Section */
+    .about-section {
+      width: 100%;
+      padding: 6rem 2rem;
+    }
+    
+    .about-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    
+    .about-image {
+      width: 100%;
+      height: 450px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7rem;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+    }
+    
+    .about-text h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+    }
+    
+    .about-text p {
+      font-size: 1.1rem;
+      line-height: 1.8;
+      opacity: 0.85;
+    }
+    
+    /* Portfolio Section */
+    .portfolio-section {
+      width: 100%;
+      padding: 6rem 2rem;
+    }
+    
+    .portfolio-container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    
+    .portfolio-container h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+    
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+    
+    .portfolio-item {
+      width: 100%;
+      height: 320px;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .portfolio-item:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Contact Section */
+    .contact-section {
+      width: 100%;
+      padding: 6rem 2rem;
+    }
+    
+    .contact-container {
+      max-width: 700px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    
+    .contact-container h2 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+    
+    .contact-container p {
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+      opacity: 0.85;
+    }
+    
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+    
+    .form-group label {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      font-size: 1rem;
+      font-family: inherit;
+      transition: border-color 0.3s ease;
+    }
+    
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: rgba(0, 0, 0, 0.3);
+    }
+    
+    .form-group textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    
+    .submit-button {
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: none;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .submit-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+    
+    /* Footer */
+    footer {
+      width: 100%;
+      padding: 3rem 2rem;
+      text-align: center;
+      border-top: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    
+    footer p {
+      opacity: 0.7;
+      font-size: 0.95rem;
+    }
+</style>
+<style>
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content,
+      .about-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+      }
+      
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+      
+      .portfolio-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      nav ul {
+        gap: 1.5rem;
+      }
+      
+      .about-text h2,
+      .portfolio-container h2,
+      .contact-container h2 {
+        font-size: 2rem;
+      }
+    }
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
+ </head>
+  <div class="page-wrapper"><!-- Header -->
+   <header id="header">
+    <div class="logo" id="logo">
+     ARTISTA
+    </div>
+    <nav>
+     <ul>
+      <li><a href="#home" id="nav-home">Início / Sobre Mim</a></li>
+      <li><a href="#portfolio" id="nav-portfolio">Portfolio</a></li>
+      <li><a href="#contact" id="nav-contact">Contato</a></li>
+     </ul>
+    </nav>
+   </header><!-- Hero Section -->
+   <section class="hero-section" id="home">
+    
+    <div class="hero-content">
+     <div class="hero-text">
+      <h1 id="hero-title">Fazendo Magia Digital</h1>
+      <p id="hero-subtitle">Transforme suas ideias em arte visual impressionante</p><a href="#portfolio" class="cta-button" id="cta-button">Ver Portfolio</a>
+     </div>
+     <div id="about-image> <h1>Preços</h1></div>
+
+      
+     </div>
+    </div>
+   </section><!-- About Section -->
+   <section class="about-section" id="about">
+
+     <div class="about-image" id="about-image">
+      <img height="100" width="100" src="C:\Users\White_Face\OneDrive\Área de Trabalho\Pasta do site\img\RAaaaahhhh.png"
+     </div>
+     <div class="about-text">
+      <h2 id="about-title">Sobre Mim</h2>
+      <h3 style="font-size: 20px;">Um artista intermediario lutando contra a procastinação e tentando crescer nas redes para ajudar na minha transição e pagar ração pra gato.
+trabalho e faço arte desde que me conheço por pessoa, desenho coisas de RPG, arte digital, desing, monstros, coisa estranhas e etc. Atualmente trabalhando em um projeto pessoal de HQ de apocalipse.</h3>
+      <p id="about-text"></p>
+      
+      <h1></h1>
+     </div>
+    </div>
+   </section><!-- Portfolio Section -->
+   <section class="portfolio-section" id="portfolio">
+
+  <h2 id="portfolio-title">Minhas artes</h2>
+
+  <div class="frame">
+        <img height="200" width="400" src="C:\Users\White_Face\OneDrive\Área de Trabalho\Pasta do site\img\Arte1.png" class="img-frame">
+       <img height="200" width="400" src="C:\Users\White_Face\OneDrive\Área de Trabalho\Pasta do site\img\dinaleo.png" class="img-frame">
+       <img height="200" width="400" src="C:\Users\White_Face\OneDrive\Área de Trabalho\Pasta do site\img\Illustration44.png" class="img-frame">
+       <img height="200" width="400" src="C:\Users\White_Face\OneDrive\Área de Trabalho\Pasta do site\img\Illustration38.png" class="img-frame">
+       <img height="200" width="400" src="C:\Users\White_Face\OneDrive\Área de Trabalho\Pasta do site\img\Illustration45.png" class="img-frame">
+       <img height="200" width="400" src="C:\Users\White_Face\OneDrive\Área de Trabalho\Pasta do site\img\Illustration16.png" class="img-frame">
+      </div>
+    </div>
+   </section><!-- Contact Section -->
+   <section class="contact-section" id="contact">
+    <div class="contact-container">
+     <p id="contact-subtitle">Entre em contato para fazer pedidos, decidir preços de comissões e projetos</p>
+     <form class="contact-form" id="contact-form">
+      <div class="form-group"><label for="email" id="email-label"> Gmail: thalsystmn@gmail.com
+        <div class="form-group"><label for="email" id="email-label">Discord: Thalsystmn
+            <div class="form-group"><label for="email" id="email-label"> X.com: @Thal_Systmn
+     </form>
+    </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      background: "C:\Users\White_Face\OneDrive\Área de Trabalho\Pasta do site\img\Dark fountain.gif",
+      surface_color: "#6b7e5e",
+      text_color: "#ffffff",
+      primary_action_color: "#6b7e5e",
+      secondary_action_color: "#1e40af",
+      font_family: "Inter",
+      font_size: 16,
+      site_title: "Thalsystmn",
+      tagline: "Artista Digital",
+      hero_title: "Criando Magia Digital",
+      hero_subtitle: "Transforme suas ideias em arte visual impressionante",
+      cta_button: "Ver Portfolio",
+      about_title: "Sobre Mim",
+      about_text: "Sou um artista digital apaixonado por criar ilustrações únicas e memoráveis. Com anos de experiência em design digital, transformo conceitos em realidade visual, combinando técnica, criatividade e paixão em cada projeto.",
+      portfolio_title: "Meu Trabalho",
+      contact_title: "Vamos Trabalhar Juntos",
+      contact_subtitle: "Entre em contato para comissões e projetos",
+      email_label: "Email",
+      contact_button: "Enviar Mensagem"
+    };
+
+    async function onConfigChange(config) {
+      const backgroundColor = config.background_color || defaultConfig.background_color;
+      const surfaceColor = config.surface_color || defaultConfig.surface_color;
+      const textColor = config.text_color || defaultConfig.text_color;
+      const primaryActionColor = config.primary_action_color || defaultConfig.primary_action_color;
+      const secondaryActionColor = config.secondary_action_color || defaultConfig.secondary_action_color;
+      const customFont = config.font_family || defaultConfig.font_family;
+      const baseSize = config.font_size || defaultConfig.font_size;
+      
+      // Apply background colors
+      document.querySelector('.hero-section').style.backgroundColor = backgroundColor;
+      document.querySelector('.about-section').style.backgroundColor = surfaceColor;
+      document.querySelector('.portfolio-section').style.backgroundColor = backgroundColor;
+      document.querySelector('.contact-section').style.backgroundColor = surfaceColor;
+      document.querySelector('footer').style.backgroundColor = backgroundColor;
+      
+      // Apply surface colors
+      document.querySelector('.hero-image').style.backgroundColor = surfaceColor;
+      document.querySelector('.about-image').style.backgroundColor = backgroundColor;
+      document.querySelectorAll('.portfolio-item').forEach(item => {
+        item.style.backgroundColor = surfaceColor;
+      });
+      
+      // Apply text colors
+      document.querySelector('.logo').style.color = textColor;
+      document.querySelectorAll('nav a').forEach(link => {
+        link.style.color = textColor;
+      });
+      document.querySelector('.hero-text h1').style.color = textColor;
+      document.querySelector('.hero-text p').style.color = textColor;
+      document.querySelector('.about-text h2').style.color = textColor;
+      document.querySelector('.about-text p').style.color = textColor;
+      document.querySelector('.portfolio-container h2').style.color = textColor;
+      document.querySelector('.contact-container h2').style.color = textColor;
+      document.querySelector('.contact-container p').style.color = textColor;
+      document.querySelectorAll('.form-group label').forEach(label => {
+        label.style.color = textColor;
+      });
+      document.querySelector('footer p').style.color = textColor;
+      
+      // Apply primary action color
+      document.querySelector('.cta-button').style.backgroundColor = primaryActionColor;
+      document.querySelector('.cta-button').style.color = textColor;
+      
+      // Apply secondary action color
+      document.querySelector('.submit-button').style.backgroundColor = secondaryActionColor;
+      document.querySelector('.submit-button').style.color = textColor;
+      
+      // Apply fonts
+      const baseFontStack = '-apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif';
+      document.body.style.fontFamily = `${customFont}, ${baseFontStack}`;
+      
+      // Apply font sizes
+      document.querySelector('.logo').style.fontSize = `${baseSize * 1.5}px`;
+      document.querySelectorAll('nav a').forEach(link => {
+        link.style.fontSize = `${baseSize * 0.95}px`;
+      });
+      document.querySelector('.hero-text h1').style.fontSize = `${baseSize * 4}px`;
+      document.querySelector('.hero-text p').style.fontSize = `${baseSize * 1.25}px`;
+      document.querySelector('.cta-button').style.fontSize = `${baseSize}px`;
+      document.querySelector('.about-text h2').style.fontSize = `${baseSize * 3}px`;
+      document.querySelector('.about-text p').style.fontSize = `${baseSize * 1.1}px`;
+      document.querySelector('.portfolio-container h2').style.fontSize = `${baseSize * 3}px`;
+      document.querySelector('.contact-container h2').style.fontSize = `${baseSize * 3}px`;
+      document.querySelector('.contact-container p').style.fontSize = `${baseSize * 1.2}px`;
+      document.querySelectorAll('.form-group label').forEach(label => {
+        label.style.fontSize = `${baseSize * 0.95}px`;
+      });
+      document.querySelectorAll('.form-group input, .form-group textarea').forEach(input => {
+        input.style.fontSize = `${baseSize}px`;
+      });
+      document.querySelector('.submit-button').style.fontSize = `${baseSize * 1.1}px`;
+      document.querySelector('footer p').style.fontSize = `${baseSize * 0.95}px`;
+      
+      // Update text content
+      document.getElementById('logo').textContent = config.site_title || defaultConfig.site_title;
+      document.getElementById('hero-title').textContent = config.hero_title || defaultConfig.hero_title;
+      document.getElementById('hero-subtitle').textContent = config.hero_subtitle || defaultConfig.hero_subtitle;
+      document.getElementById('cta-button').textContent = config.cta_button || defaultConfig.cta_button;
+      document.getElementById('about-title').textContent = config.about_title || defaultConfig.about_title;
+      document.getElementById('about-text').textContent = config.about_text || defaultConfig.about_text;
+      document.getElementById('portfolio-title').textContent = config.portfolio_title || defaultConfig.portfolio_title;
+      document.getElementById('contact-title').textContent = config.contact_title || defaultConfig.contact_title;
+      document.getElementById('contact-subtitle').textContent = config.contact_subtitle || defaultConfig.contact_subtitle;
+      document.getElementById('email-label').textContent = config.email_label || defaultConfig.email_label;
+      document.getElementById('contact-button').textContent = config.contact_button || defaultConfig.contact_button;
+    }
+
+    function mapToCapabilities(config) {
+      return {
+        recolorables: [
+          {
+            get: () => config.background_color || defaultConfig.background_color,
+            set: (value) => {
+              config.background_color = value;
+              window.elementSdk.setConfig({ background_color: value });
+            }
+          },
+          {
+            get: () => config.surface_color || defaultConfig.surface_color,
+            set: (value) => {
+              config.surface_color = value;
+              window.elementSdk.setConfig({ surface_color: value });
+            }
+          },
+          {
+            get: () => config.text_color || defaultConfig.text_color,
+            set: (value) => {
+              config.text_color = value;
+              window.elementSdk.setConfig({ text_color: value });
+            }
+          },
+          {
+            get: () => config.primary_action_color || defaultConfig.primary_action_color,
+            set: (value) => {
+              config.primary_action_color = value;
+              window.elementSdk.setConfig({ primary_action_color: value });
+            }
+          },
+          {
+            get: () => config.secondary_action_color || defaultConfig.secondary_action_color,
+            set: (value) => {
+              config.secondary_action_color = value;
+              window.elementSdk.setConfig({ secondary_action_color: value });
+            }
+          }
+        ],
+        borderables: [],
+        fontEditable: {
+          get: () => config.font_family || defaultConfig.font_family,
+          set: (value) => {
+            config.font_family = value;
+            window.elementSdk.setConfig({ font_family: value });
+          }
+        },
+        fontSizeable: {
+          get: () => config.font_size || defaultConfig.font_size,
+          set: (value) => {
+            config.font_size = value;
+            window.elementSdk.setConfig({ font_size: value });
+          }
+        }
+      };
+    }
+
+    function mapToEditPanelValues(config) {
+      return new Map([
+        ["site_title", config.site_title || defaultConfig.site_title],
+        ["tagline", config.tagline || defaultConfig.tagline],
+        ["hero_title", config.hero_title || defaultConfig.hero_title],
+        ["hero_subtitle", config.hero_subtitle || defaultConfig.hero_subtitle],
+        ["cta_button", config.cta_button || defaultConfig.cta_button],
+        ["about_title", config.about_title || defaultConfig.about_title],
+        ["about_text", config.about_text || defaultConfig.about_text],
+        ["portfolio_title", config.portfolio_title || defaultConfig.portfolio_title],
+        ["contact_title", config.contact_title || defaultConfig.contact_title],
+        ["contact_subtitle", config.contact_subtitle || defaultConfig.contact_subtitle],
+        ["email_label", config.email_label || defaultConfig.email_label],
+        ["contact_button", config.contact_button || defaultConfig.contact_button]
+      ]);
+    }
+
+    // Initialize SDK
+    if (window.elementSdk) {
+      window.elementSdk.init({
+        defaultConfig,
+        onConfigChange,
+        mapToCapabilities,
+        mapToEditPanelValues
+      });
+    }
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // Header scroll effect
+    window.addEventListener('scroll', () => {
+      const header = document.getElementById('header');
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // Form submission
+    document.getElementById('contact-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+      
+      // Show success message
+      const form = e.target;
+      const successMsg = document.createElement('div');
+      successMsg.textContent = 'Mensagem enviada com sucesso!';
+      successMsg.style.cssText = `
+        padding: 1rem;
+        background: #10b981;
+        color: white;
+        border-radius: 8px;
+        margin-top: 1rem;
+        text-align: center;
+        font-weight: 600;
+      `;
+      form.appendChild(successMsg);
+      
+      // Reset form
+      form.reset();
+      
+      setTimeout(() => {
+        successMsg.remove();
+      }, 3000);
+    });
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a5580d6b774a45a',t:'MTc2NDI4NzE2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
