@@ -11,6 +11,34 @@
 
       box-sizing: border-box;
     }
+
+    #fullscreen {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#fullscreen img {
+  max-width: 95vw;
+  max-height: 95vh;
+  border-radius: 10px;
+}
+
+.img-frame {
+  cursor: pointer;
+  transition: .3s;
+}
+.img-frame:hover {
+  opacity: 0.8;
+}
+
     
     #portfolio-title {
   text-align: center;
@@ -428,6 +456,7 @@ trabalho e faço arte desde que me conheço por pessoa, desenho coisas de RPG, a
    <section class="portfolio-section" id="portfolio">
 
   <h2 id="portfolio-title">Minhas artes</h2>
+<script> document.querySelectorAll('.img-frame').forEach(img => { img.addEventListener('click', () => { const full = document.getElementById("fullscreen"); const fullImg = document.getElementById("fullscreen-img"); fullImg.src = img.src; full.style.display = "flex"; // Tenta colocar o overlay em fullscreen if (full.requestFullscreen) { full.requestFullscreen(); } else if (full.webkitRequestFullscreen) { // Safari full.webkitRequestFullscreen(); } else if (full.msRequestFullscreen) { // IE11 full.msRequestFullscreen(); } }); }); function closeFullscreen() { const full = document.getElementById("fullscreen"); full.style.display = "none"; // Sai do fullscreen, se estiver if (document.exitFullscreen) { document.exitFullscreen(); } else if (document.webkitExitFullscreen) { document.webkitExitFullscreen(); } else if (document.msExitFullscreen) { document.msExitFullscreen(); } } </script>
 
   <div class="frame">
         <img height="200" width="400" src="https://raw.githubusercontent.com/RWhiteFace/Arte-thalsystmn/8b3a1ecae49a8542d5aa68b4281acdfc1901da31/Arte1.png" class="img-frame">
@@ -444,8 +473,8 @@ trabalho e faço arte desde que me conheço por pessoa, desenho coisas de RPG, a
      <p id="contact-subtitle">Entre em contato para fazer pedidos, decidir preços de comissões e projetos</p>
      <form class="contact-form" id="contact-form">
       <div class="form-group"><label for="email" id="email-label"> Gmail: thalsystmn@gmail.com
-        <div class="form-group"><label for="email" id="email-label">Discord: Thalsystmn
-            <div class="form-group"><label for="email" id="email-label"> X.com: @Thal_Systmn
+      <div class="form-group"><label for="email" id="email-label">Discord: Thalsystmn
+            <div class="form-group"><label for="email" id="email-label"><a href="https://x.com/Thal_Systmn"> X.com: @Thal_Systmn </a>
      </form>
     </div>
   </div>
@@ -695,4 +724,5 @@ trabalho e faço arte desde que me conheço por pessoa, desenho coisas de RPG, a
     });
   </script>
  <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a5580d6b774a45a',t:'MTc2NDI4NzE2OS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
-</html>
+ </html>
+ <div id="fullscreen" onclick="closeFullscreen()"> <img id="fullscreen-img" src="" alt="Imagem em foco"> </div>
