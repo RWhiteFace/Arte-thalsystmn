@@ -3,19 +3,34 @@
  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Digital Artist Portfolio</title>
+  <title>Artes Thalsystmn</title>
   <script src="/_sdk/element_sdk.js"></script>
   <style>
     body {
+
+
       box-sizing: border-box;
     }
     
+    #portfolio-title {
+  text-align: center;
+  font-size: 40px;      /* deixa maior */
+  font-weight: 800;     /* deixa mais forte */
+  margin-bottom: 30px;  /* espaço entre o título e as imagens */
+  color: black;         /* garante visibilidade */
+}
+
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    
+
+    .titulo {
+    text-align: center;
+    font-size: 12px;
+    }
+
     html, body {
       height: 100%;
       width: 100%;
@@ -51,6 +66,14 @@
       box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
     }
     
+    .top-center {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    }
+
     .logo {
       font-size: 1.5rem;
       font-weight: 700;
@@ -110,6 +133,23 @@
       opacity: 0.9;
     }
     
+    .frame {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+}
+
+.img-frame {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+
     .cta-button {
       display: inline-block;
       padding: 1rem 2.5rem;
@@ -311,7 +351,9 @@
       opacity: 0.7;
       font-size: 0.95rem;
     }
-    
+</style>
+<style>
+
     /* Responsive */
     @media (max-width: 768px) {
       .hero-content,
@@ -338,87 +380,78 @@
         font-size: 2rem;
       }
     }
-  </style>
   <style>@view-transition { navigation: auto; }</style>
   <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
   <script src="https://cdn.tailwindcss.com" type="text/javascript"></script>
  </head>
- <body>
   <div class="page-wrapper"><!-- Header -->
    <header id="header">
     <div class="logo" id="logo">
-     ARTISTA
+     thalsystmn
     </div>
     <nav>
      <ul>
-      <li><a href="#home" id="nav-home">Início</a></li>
-      <li><a href="#about" id="nav-about">Sobre</a></li>
+      <li><a href="#home" id="nav-home">Início / Sobre Mim</a></li>
       <li><a href="#portfolio" id="nav-portfolio">Portfolio</a></li>
       <li><a href="#contact" id="nav-contact">Contato</a></li>
      </ul>
     </nav>
    </header><!-- Hero Section -->
    <section class="hero-section" id="home">
+    
     <div class="hero-content">
      <div class="hero-text">
-      <h1 id="hero-title">Criando Magia Digital</h1>
+      <h1 id="hero-title">Fazendo Magia Digital</h1>
       <p id="hero-subtitle">Transforme suas ideias em arte visual impressionante</p><a href="#portfolio" class="cta-button" id="cta-button">Ver Portfolio</a>
      </div>
-     <div class="hero-image" id="hero-image">
-      🎨
+     <div id="about-image> <h1>Preços</h1></div>
+
+      
      </div>
     </div>
    </section><!-- About Section -->
    <section class="about-section" id="about">
-    <div class="about-content">
+
      <div class="about-image" id="about-image">
-      ✨
+      <img height="100" width="100" src="https://github.com/RWhiteFace/Arte-thalsystmn/blob/main/RAaaaahhhh.png?raw=true"
      </div>
      <div class="about-text">
       <h2 id="about-title">Sobre Mim</h2>
-      <p id="about-text">Sou um artista digital apaixonado por criar ilustrações únicas e memoráveis. Com anos de experiência em design digital, transformo conceitos em realidade visual, combinando técnica, criatividade e paixão em cada projeto.</p>
+      <h3 style="font-size: 20px;">Um artista intermediario lutando contra a procastinação e tentando crescer nas redes para ajudar na minha transição e pagar ração pra gato.
+trabalho e faço arte desde que me conheço por pessoa, desenho coisas de RPG, arte digital, desing, monstros, coisa estranhas e etc. Atualmente trabalhando em um projeto pessoal de HQ de apocalipse.</h3>
+      <p id="about-text"></p>
+      
+      <h1></h1>
      </div>
     </div>
    </section><!-- Portfolio Section -->
    <section class="portfolio-section" id="portfolio">
-    <div class="portfolio-container">
-     <h2 id="portfolio-title">Meu Trabalho</h2>
-     <div class="portfolio-grid">
-      <div class="portfolio-item" id="portfolio-1">
-       🖼️
+
+  <h2 id="portfolio-title">Minhas artes</h2>
+
+  <div class="frame">
+        <img height="200" width="400" src="https://raw.githubusercontent.com/RWhiteFace/Arte-thalsystmn/8b3a1ecae49a8542d5aa68b4281acdfc1901da31/Arte1.png" class="img-frame">
+       <img height="200" width="400" src="https://raw.githubusercontent.com/RWhiteFace/Arte-thalsystmn/8b3a1ecae49a8542d5aa68b4281acdfc1901da31/dinaleo.png" class="img-frame">
+       <img height="200" width="400" src="https://raw.githubusercontent.com/RWhiteFace/Arte-thalsystmn/8b3a1ecae49a8542d5aa68b4281acdfc1901da31/Illustration44.png" class="img-frame">
+       <img height="200" width="400" src="https://raw.githubusercontent.com/RWhiteFace/Arte-thalsystmn/8b3a1ecae49a8542d5aa68b4281acdfc1901da31/Illustration38.png" class="img-frame">
+       <img height="200" width="400" src="https://raw.githubusercontent.com/RWhiteFace/Arte-thalsystmn/8b3a1ecae49a8542d5aa68b4281acdfc1901da31/Illustration45.png" class="img-frame">
+       <img height="200" width="400" src="https://raw.githubusercontent.com/RWhiteFace/Arte-thalsystmn/8b3a1ecae49a8542d5aa68b4281acdfc1901da31/Illustration16.png" class="img-frame">
       </div>
-      <div class="portfolio-item" id="portfolio-2">
-       🎭
-      </div>
-      <div class="portfolio-item" id="portfolio-3">
-       🌟
-      </div>
-      <div class="portfolio-item" id="portfolio-4">
-       🎪
-      </div>
-      <div class="portfolio-item" id="portfolio-5">
-       🎨
-      </div>
-      <div class="portfolio-item" id="portfolio-6">
-       ✨
-      </div>
-     </div>
     </div>
    </section><!-- Contact Section -->
-   </div><button type="submit" class="submit-button" id="contact-button">Botão Da Ansiedade</button>
    <section class="contact-section" id="contact">
     <div class="contact-container">
-     <p id="contact-subtitle">Entre em contato para comissões e projetos</p>
+     <p id="contact-subtitle">Entre em contato para fazer pedidos, decidir preços de comissões e projetos</p>
      <form class="contact-form" id="contact-form">
       <div class="form-group"><label for="email" id="email-label"> Gmail: thalsystmn@gmail.com
-        <div class="form-group"><label for="email" id="email-label">Discord: Thalsystmn.
+        <div class="form-group"><label for="email" id="email-label">Discord: Thalsystmn
             <div class="form-group"><label for="email" id="email-label"> X.com: @Thal_Systmn
      </form>
     </div>
   </div>
   <script>
     const defaultConfig = {
-      background_color: "#1e40af",
+      background: "C:\Users\White_Face\OneDrive\Área de Trabalho\Pasta do site\img\Dark fountain.gif",
       surface_color: "#6b7e5e",
       text_color: "#ffffff",
       primary_action_color: "#6b7e5e",
@@ -644,7 +677,7 @@
       successMsg.textContent = 'Mensagem enviada com sucesso!';
       successMsg.style.cssText = `
         padding: 1rem;
-        background-color: #10b981;
+        background: #10b981;
         color: white;
         border-radius: 8px;
         margin-top: 1rem;
